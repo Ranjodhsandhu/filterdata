@@ -41,7 +41,10 @@ class SearchCities extends Component{
             dynamicHtml = matchedArray.map((entry) => {
                 const regex = new RegExp(matchWord, 'gi');
 
-                const cityName = entry.city.replace(regex, `<span class='highLight'>${matchWord}</span>`);
+                const cityName = entry.city.replace(regex, `<span class='highLight'>${matchWord.toLowerCase()
+                    .split(' ')
+                    .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
+                    .join(' ')}</span>`);
 
                 return `<li>
                 <span class='city'>${cityName}, ${entry.state}</span> </br>
