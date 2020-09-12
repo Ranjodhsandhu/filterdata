@@ -31,15 +31,23 @@ class SearchCities extends Component{
                 <li>Growth</li>
                 <li>Latitude</li>
                 <li>Longitude</li>`;
-        // get rid of extra space in string
+
         const matchWord = (this.state.userInput).trim();
-        // get array of matched values
+
         let matchedArray = this.findMatches(matchWord);
-        // check if there is any array returned
+
         if (matchWord !== '' && matchedArray.length) {
-            // map the values by wrapping them in semantic html tags
+
             dynamicHtml = matchedArray.map((entry) => {
-                return `<li><span class='zone'>${entry.city}</span></li>`
+                return `<li>
+                <span class='city'>${entry.city}</span> </br>
+                <span class='city-data'>
+                    Population: ${entry.population} </br>
+                    Growth from 2000 to 2013: ${entry.growth_from_2000_to_2013} </br>
+                    Latitude: ${entry.latitude} </br>
+                    Longitude: ${entry.longitude} </br>
+                </span>
+                </li>`
             }).join('');
         }
 
@@ -48,18 +56,16 @@ class SearchCities extends Component{
             html: dynamicHtml
         })
     }
-    // checks for each item in the time Zone List from timezonedb.com
-    // @params: matchWord - the word in input field to be matched
+
     findMatches = (matchWord) => {
-        // first check if the word to find has all characters or a space
         const isCharacter = /^[a-zA-Z ]+$/.test(matchWord);
         return isCharacter ? this.state.citiesArray.filter(entry => {
             const regex = new RegExp(matchWord, 'gi');
             return entry.city.match(regex)
         }) : [];
     }
+
     render(){
-        console.log(this.state.citiesArray);//this.getCityList);
         return(
             <div style={{margin:"0 auto",color:"red"}}>
                 <form 
