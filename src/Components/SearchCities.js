@@ -25,6 +25,12 @@ class SearchCities extends Component{
                 //.catch(err => {  });
         }
     }
+    titleCase = (stringWords)=>{
+        return stringWords.toLowerCase()
+            .split(' ')
+            .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
+            .join(' ');
+    }
     displayDynamicCityList = (event) => {
         let dynamicHtml = `<li>City</li>
                 <li>Population</li>
@@ -41,19 +47,16 @@ class SearchCities extends Component{
             dynamicHtml = matchedArray.map((entry) => {
                 const regex = new RegExp(matchWord, 'gi');
 
-                const cityName = entry.city.replace(regex, `<span class='highLight'>${matchWord.toLowerCase()
-                    .split(' ')
-                    .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
-                    .join(' ')}</span>`);
+                const cityName = entry.city.replace(regex, `<span class='highLight'>${this.titleCase(matchWord)}</span>`);
 
                 return `<li>
-                <span class='city'>${cityName}, ${entry.state}</span> </br>
-                <span class='city-data'>
-                    Population: ${entry.population} </br>
-                    Growth from 2000 to 2013: ${entry.growth_from_2000_to_2013} </br>
-                    Latitude: ${entry.latitude} </br>
-                    Longitude: ${entry.longitude} </br>
-                </span>
+                    <span class='city'>${cityName}, ${entry.state}</span> </br>
+                    <span class='city-data'>
+                        Population: ${entry.population} </br>
+                        Growth from 2000 to 2013: ${entry.growth_from_2000_to_2013} </br>
+                        Latitude: ${entry.latitude} </br>
+                        Longitude: ${entry.longitude} </br>
+                    </span>
                 </li>`
             }).join('');
         }
