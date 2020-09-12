@@ -44,7 +44,7 @@ class SearchCities extends Component{
                 const cityName = entry.city.replace(regex, `<span class='highLight'>${matchWord}</span>`);
 
                 return `<li>
-                <span class='city'>${cityName}</span> </br>
+                <span class='city'>${cityName}, ${entry.state}</span> </br>
                 <span class='city-data'>
                     Population: ${entry.population} </br>
                     Growth from 2000 to 2013: ${entry.growth_from_2000_to_2013} </br>
