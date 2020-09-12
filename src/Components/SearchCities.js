@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 import CitiesJson from '../Util/CitiesJson';
 import ReactHtmlParser from 'react-html-parser';
-
+import '../App.css';
 class SearchCities extends Component{
     constructor(){
         super();
@@ -39,8 +39,12 @@ class SearchCities extends Component{
         if (matchWord !== '' && matchedArray.length) {
 
             dynamicHtml = matchedArray.map((entry) => {
+                const regex = new RegExp(matchWord, 'gi');
+
+                const cityName = entry.city.replace(regex, `<span class='highLight'>${matchWord}</span>`);
+
                 return `<li>
-                <span class='city'>${entry.city}</span> </br>
+                <span class='city'>${cityName}</span> </br>
                 <span class='city-data'>
                     Population: ${entry.population} </br>
                     Growth from 2000 to 2013: ${entry.growth_from_2000_to_2013} </br>
@@ -67,7 +71,7 @@ class SearchCities extends Component{
 
     render(){
         return(
-            <div style={{margin:"0 auto",color:"red"}}>
+            <div style={{margin:"0 auto"}}>
                 <form 
                     action=""
                     id="search"
