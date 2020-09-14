@@ -86,7 +86,7 @@ class SearchCities extends Component{
                     onSubmit={(event) => event.preventDefault()}
                 >
                     <label 
-                        htmlFor="search"
+                        htmlFor="cityName"
                         aria-label="Enter Country or Zone name"
                         className="sr-only">Enter City Name
                     </label>
@@ -95,7 +95,7 @@ class SearchCities extends Component{
                         type="text" 
                         id="cityName" 
                         value={this.state.userInput}
-                        placeholder="City Name"
+                        placeholder="Enter City Name"
                         onChange={this.displayDynamicCityList}
                         onKeyUp={this.displayDynamicCityList}
                     />
