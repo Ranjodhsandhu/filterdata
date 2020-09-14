@@ -6,7 +6,7 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 
 .visuallyHidden:not(:focus):not(:active) { position: absolute; width: 1px; height: 1px; margin: -1px;border: 0;padding: 0;white-space: nowrap;clip-path: inset(100%);clip: rect(00 0 0);overflow: hidden;}
 
-
+.sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; border: 0; padding: 0; white-space: nowrap; clip-path: inset(100%); clip: rect(0 0 0 0); overflow: hidden;}
 
 /**************************/
 .App {
@@ -38,12 +38,89 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 .App-link {
   color: #61dafb;
 }
+
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+body{
+  background-color:#fafafa;
+  font-family: 'Josefin Sans', cursive;
+}
 /******************/
 
+/**** Start Styles for the Header *****/
+h1{
+  font-size: 3rem;
+  margin-top:40px;
+}
+
+/**** End Styles for the Header *****/
 
 /**** Start Styles for the main body *****/
+main{
+  padding-top:50px;
+  padding-bottom:50px;
+}
+
 .highLight {
   background:rgb(255, 234, 8);
 }
 
+.search {
+  margin: 0;
+  max-width:320px;
+  text-align: center;
+  outline:0;
+  border: 10px solid #F7F7F7;
+  width: 100%;
+  position: relative;
+  top: 10px;
+  z-index: 2;
+  border-radius: 5px;
+  font-size: 1.6rem;
+  box-shadow: 
+    0 0 7px rgba(0, 0, 0, 0.1), 
+    inset 0 0 1px rgba(0, 0, 0, 0.2);
+}
+
+.city{
+  font-size:1.4rem;
+}
+.city-data{
+  font-size:1rem;
+}
+.city-list-container{
+  position:relative;
+  margin-top:8px;
+  margin-bottom:150px;
+}
+
+.search-results {
+  max-width:320px;
+  margin: 0 auto;
+  padding: 0;
+  position: absolute;
+  top: 0;
+  left:0;
+  right:0;
+  bottom:0;
+  z-index:5;
+}
+.search-results li {
+  background: black;
+  font-size:1.2rem;
+  list-style: none;
+  border-bottom: 4px solid #C8C8C8;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.14);
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  text-align:left;
+  justify-content: space-between;
+  text-transform: capitalize;
+  z-index:20;
+  background: linear-gradient(to top,  #ffffff 0%,#EEEEEE 100%);
+}
+.search-results span:nth-child(1){
+  margin-bottom:15px;
+}
 /**** End Styles for the main body *****/

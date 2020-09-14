@@ -7,7 +7,7 @@ class App extends Component{
     return(
       <div className="App">
         <header>
-          <h1>United States City Data Filter</h1>
+          <h1>United States Cities - Filter Data</h1>
         </header>
         <main>  
           <SearchCities />

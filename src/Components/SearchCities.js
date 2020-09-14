@@ -8,11 +8,7 @@ class SearchCities extends Component{
         this.state = {
             citiesArray:null,
             userInput:'',
-            html:`<li>City</li>
-                <li>Population</li>
-                <li>Growth</li>
-                <li>Latitude</li>
-                <li>Longitude</li>`
+            html:`<li>Start Typing</li>`
         }
     }
     componentDidMount() {
@@ -32,11 +28,7 @@ class SearchCities extends Component{
             .join(' ');
     }
     displayDynamicCityList = (event) => {
-        let dynamicHtml = `<li>City</li>
-                <li>Population</li>
-                <li>Growth</li>
-                <li>Latitude</li>
-                <li>Longitude</li>`;
+        let dynamicHtml = `<li>Start Typing</li>`;
 
         const matchWord = (this.state.userInput).trim();
 
@@ -52,7 +44,7 @@ class SearchCities extends Component{
                 return `<li>
                     <span class='city'>${cityName}, ${entry.state}</span> </br>
                     <span class='city-data'>
-                        Population: ${entry.population} </br>
+                        Population: ${entry.population}</br>
                         Growth from 2000 to 2013: ${entry.growth_from_2000_to_2013} </br>
                         Latitude: ${entry.latitude} </br>
                         Longitude: ${entry.longitude} </br>
