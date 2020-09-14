@@ -21,12 +21,6 @@ class SearchCities extends Component{
                 //.catch(err => {  });
         }
     }
-    titleCase = (stringWords)=>{
-        return stringWords.toLowerCase()
-            .split(' ')
-            .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
-            .join(' ');
-    }
     displayDynamicCityList = (event) => {
         let dynamicHtml = `<li>Start Typing</li>`;
 
@@ -39,7 +33,7 @@ class SearchCities extends Component{
             dynamicHtml = matchedArray.map((entry) => {
                 const regex = new RegExp(matchWord, 'gi');
 
-                const cityName = entry.city.replace(regex, `<span class='highLight'>${this.titleCase(matchWord)}</span>`);
+                const cityName = entry.city.replace(regex, match => { return `<span class='highLight'>${match}</span>` });
 
                 return `<li>
                     <span class='city'>${cityName}, ${entry.state}</span> </br>

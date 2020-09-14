@@ -38,7 +38,7 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 .App-link {
   color: #61dafb;
 }
-
+/*including font type from google fonts*/
 @import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
 body{
   background-color:#fafafa;
